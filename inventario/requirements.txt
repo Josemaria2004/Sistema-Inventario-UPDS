@@ -1,0 +1,2 @@
+# No se requieren paquetes externos de pip.
+# Tkinter y sqlite3 forman parte de Python; en Linux puede ser necesario instalar python3-tk desde el sistema.

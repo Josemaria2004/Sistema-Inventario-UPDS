@@ -1,0 +1,28 @@
+RESULTADO DE PRUEBAS AUTOMATIZADAS
+==================================
+
+Comando ejecutado en Linux con pantalla virtual:
+
+    xvfb-run -a python -m unittest discover -s tests -v
+
+Resultado de la ejecución final:
+
+    Ran 171 tests in 4.925s
+    OK
+
+Resumen:
+    Pruebas ejecutadas: 171
+    Aprobadas:          171
+    Fallidas:           0
+    Omitidas:           0
+
+Entorno de validación:
+    Python:  3.13.5
+    Tk/Tcl:  8.6
+    SQLite:  3.46.1
+
+La suite incluye pruebas de lógica, validaciones, seguridad, operaciones de inventario,
+estructuras dinámicas, recursividad, persistencia, respaldos y ventanas reales de Tkinter.
+Para ejecutar las pruebas GUI se requiere un entorno gráfico; en Linux sin escritorio,
+Xvfb proporciona un display virtual. En Windows o macOS con escritorio puede ejecutarse
+el comando de unittest sin xvfb-run.

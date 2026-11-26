@@ -1,0 +1,3 @@
+Respaldo: respaldo_demostracion.db
+Inspección: {'productos': 7, 'categorias': 4, 'movimientos': 7}
+Restauración: correcta

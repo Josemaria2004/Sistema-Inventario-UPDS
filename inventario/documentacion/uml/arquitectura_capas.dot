@@ -1,0 +1,16 @@
+
+digraph G {
+ graph [rankdir=LR, bgcolor="white", pad=0.25, nodesep=0.45, ranksep=0.75, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="ARQUITECTURA EN CAPAS - SISTEMA DE INVENTARIO", fontsize=18];
+ node [shape=box, style="rounded,filled", color="#284B63", fillcolor="#F3F7FA", fontname="DejaVu Sans", fontsize=11, margin="0.18,0.12"];
+ edge [color="#526777", penwidth=1.5, arrowsize=0.8, fontname="DejaVu Sans", fontsize=9];
+ UI [label="PRESENTACIÓN\nui.py | Tkinter / ttk\nApp, diálogos, ventanas", fillcolor="#E5F0F8"];
+ S [label="SERVICIOS / REGLAS\nservicios.py\nAuthService | InventarioService", fillcolor="#E6F3EA"];
+ R [label="ACCESO A DATOS\ndatabase.py\nRepositorioBase + 4 repositorios", fillcolor="#FFF3DF"];
+ DB [shape=cylinder, label="PERSISTENCIA\ninventario.db\nSQLite", fillcolor="#F2EAFE"];
+ X [label="MÓDULOS DE SOPORTE\nestructuras.py | algoritmos.py\nseguridad.py | reportes.py | respaldos.py", fillcolor="#F8F1F1"];
+ UI -> S [label="llamadas de aplicación"];
+ S -> R [label="consultas y comandos"];
+ R -> DB [label="SQL parametrizado"];
+ S -> X [dir=both, label="estructuras y utilidades"];
+ UI -> X [style=dashed, label="presentación / exportación"];
+}

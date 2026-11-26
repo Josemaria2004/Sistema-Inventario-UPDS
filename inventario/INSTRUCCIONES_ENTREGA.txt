@@ -1,0 +1,56 @@
+INSTRUCCIONES DE EJECUCIÓN Y ENTREGA
+===================================
+
+1. REQUISITOS
+-------------
+- Python 3.8 o superior.
+- Tkinter disponible para la interfaz gráfica.
+- No se requieren dependencias externas de pip (ver requirements.txt).
+
+2. INICIAR LA APLICACIÓN
+------------------------
+- Abrir una terminal dentro de esta carpeta (inventario_corregido).
+- Ejecutar:
+
+      python main.py
+
+3. ACCESO INICIAL
+-----------------
+- Usuario: admin
+- Clave inicial: admin123
+- Cambiar la contraseña inmediatamente después del primer acceso.
+
+4. PRUEBAS AUTOMATIZADAS
+------------------------
+Ejecutar desde esta carpeta:
+
+      python -m unittest discover -s tests -v
+
+En Linux sin escritorio, ejecutar:
+
+      xvfb-run -a python -m unittest discover -s tests -v
+
+La ejecución final registrada aprobó las 171 pruebas, sin fallos ni omisiones.
+El detalle se encuentra en PRUEBAS_AUTOMATIZADAS.txt.
+
+5. DATOS, RESPALDOS Y REPORTES
+------------------------------
+- La aplicación usa inventario.db como base local.
+- Los respaldos se guardan en la carpeta respaldos.
+- Los reportes exportados se guardan en reportes.
+- Restaurar un respaldo reemplaza los datos actuales, incluidas las cuentas y las
+  contraseñas; antes de restaurar, la aplicación crea una copia del estado actual.
+- No borrar ni mover inventario.db mientras la aplicación está en ejecución.
+
+6. DOCUMENTACIÓN
+----------------
+- El informe científico-técnico PDF se encuentra en la carpeta superior de la entrega.
+- documentacion/evidencias contiene capturas generadas con una base sintética de prueba,
+  independiente de la base de datos original entregada.
+- documentacion/uml contiene los diagramas de arquitectura y clases en PNG y fuentes DOT.
+- PRUEBAS_AUTOMATIZADAS.txt registra el comando reproducible y el resultado de las 171 pruebas.
+
+7. CARÁTULA INSTITUCIONAL
+-------------------------
+La carátula del informe incluye los datos del proyecto, del estudiante, del docente,
+de la asignatura y la ubicación/gestión indicadas para la presentación.

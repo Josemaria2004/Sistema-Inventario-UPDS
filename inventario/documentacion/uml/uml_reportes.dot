@@ -1,0 +1,17 @@
+
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.25, nodesep=0.38, ranksep=0.58, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 4/5 - JERARQUÍA DE REPORTES Y POLIMORFISMO", fontsize=17];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=10];
+ edge [color="#314B5F", penwidth=1.25, arrowsize=0.8, fontname="DejaVu Sans", fontsize=9];
+ Reporte [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#DCEAF4"><B><I>«abstract» Reporte</I></B></TD></TR><TR><TD ALIGN="LEFT">+ extension: str {abstract}<BR ALIGN="LEFT"/>+ descripcion: str {abstract}<BR ALIGN="LEFT"/>+ renderizar(datos): str {abstract}</TD></TR><TR><TD ALIGN="LEFT">+ codificacion: str<BR ALIGN="LEFT"/>+ salto_de_linea<BR ALIGN="LEFT"/>+ guardar(ruta, datos)</TD></TR></TABLE>>];
+ Txt [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>ReporteTxt</B></TD></TR><TR><TD ALIGN="LEFT">+ extension = .txt<BR ALIGN="LEFT"/>+ descripcion = Texto<BR ALIGN="LEFT"/>+ renderizar(datos)</TD></TR></TABLE>>];
+ Csv [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>ReporteCsv</B></TD></TR><TR><TD ALIGN="LEFT">+ extension = .csv<BR ALIGN="LEFT"/>+ descripcion = CSV (Excel)<BR ALIGN="LEFT"/>+ codificacion = utf-8-sig<BR ALIGN="LEFT"/>+ renderizar(datos)</TD></TR></TABLE>>];
+ Datos [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#FFF2DE"><B>DatosReporte «dataclass»</B></TD></TR><TR><TD ALIGN="LEFT">+ usuario, fecha<BR ALIGN="LEFT"/>+ productos, rutas, bajos, resumen</TD></TR><TR><TD ALIGN="LEFT">+ total: float {property}</TD></TR></TABLE>>];
+ Service [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#F2EAFE"><B>ReporteService</B></TD></TR><TR><TD ALIGN="LEFT">- inventario<BR ALIGN="LEFT"/>- formatos: List[Reporte]</TD></TR><TR><TD ALIGN="LEFT">+ formato_para()/tipos_de_archivo()<BR ALIGN="LEFT"/>+ recopilar()/generar()/guardar()</TD></TR></TABLE>>];
+ {rank=same; Txt; Csv}
+ Txt -> Reporte [arrowhead=empty, label="hereda"];
+ Csv -> Reporte [arrowhead=empty, label="hereda"];
+ Service -> Reporte [dir=both, arrowtail=odiamond, arrowhead=vee, label="selecciona / usa formatos"];
+ Reporte -> Datos [style=dashed, arrowhead=vee, label="renderizar(datos)"];
+ Service -> Datos [style=dashed, arrowhead=vee, label="recopila datos"];
+}

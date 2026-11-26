@@ -1,0 +1,16 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.62, ranksep=0.62, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 1/7 - ENTIDADES DEL DOMINIO", fontsize=18];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=12];
+ edge [color="#314B5F", penwidth=1.4, arrowsize=0.9, fontname="DejaVu Sans", fontsize=9];
+ Entidad [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#DCEAF4"><B><I>«abstract» Entidad</I></B></TD></TR><TR><TD ALIGN="LEFT">+ validar(): List[str] {abstract}<BR ALIGN="LEFT"/>+ es_valida(): bool</TD></TR></TABLE>>];
+ Producto [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>Producto</B></TD></TR><TR><TD ALIGN="LEFT">- id: Optional[int]<BR ALIGN="LEFT"/>- nombre: str<BR ALIGN="LEFT"/>- descripcion: str<BR ALIGN="LEFT"/>- precio: float<BR ALIGN="LEFT"/>- cantidad: int<BR ALIGN="LEFT"/>- id_categoria: Optional[int]</TD></TR><TR><TD ALIGN="LEFT">+ validar()<BR ALIGN="LEFT"/>+ valor<BR ALIGN="LEFT"/>+ bajo_stock()</TD></TR></TABLE>>];
+ Categoria [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>Categoria</B></TD></TR><TR><TD ALIGN="LEFT">- id: Optional[int]<BR ALIGN="LEFT"/>- nombre: str<BR ALIGN="LEFT"/>- id_padre: Optional[int]</TD></TR><TR><TD ALIGN="LEFT">+ validar()</TD></TR></TABLE>>];
+ Movimiento [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FFF2DE"><B>Movimiento</B></TD></TR><TR><TD ALIGN="LEFT">+ id: int<BR ALIGN="LEFT"/>+ producto: str<BR ALIGN="LEFT"/>+ tipo: str<BR ALIGN="LEFT"/>+ cantidad: int<BR ALIGN="LEFT"/>+ fecha: str</TD></TR></TABLE>>];
+ Usuario [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FFF2DE"><B>Usuario</B></TD></TR><TR><TD ALIGN="LEFT">+ usuario: str<BR ALIGN="LEFT"/>- clave_hash: str</TD></TR></TABLE>>];
+ {rank=same; Producto; Categoria}
+ {rank=same; Movimiento; Usuario}
+ Entidad -> Producto [style=invis, weight=5]; Entidad -> Categoria [style=invis, weight=5];
+ Producto -> Movimiento [style=invis, weight=5]; Categoria -> Usuario [style=invis, weight=5];
+ Producto -> Entidad [arrowhead=empty, constraint=false, label="herencia"];
+ Categoria -> Entidad [arrowhead=empty, constraint=false, label="herencia"];
+}

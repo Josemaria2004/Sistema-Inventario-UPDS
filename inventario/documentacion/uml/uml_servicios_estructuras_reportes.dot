@@ -1,0 +1,30 @@
+
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.28, nodesep=0.42, ranksep=0.50, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 3/5 - SERVICIOS Y ESTRUCTURAS DINÁMICAS", fontsize=17];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=10];
+ edge [color="#314B5F", penwidth=1.25, arrowsize=0.8, fontname="DejaVu Sans", fontsize=9];
+ Auth [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#E5F0F8"><B>AuthService</B></TD></TR><TR><TD ALIGN="LEFT">- db / usuarios<BR ALIGN="LEFT"/>- _fallos</TD></TR><TR><TD ALIGN="LEFT">+ login()<BR ALIGN="LEFT"/>+ cambiar_clave()</TD></TR></TABLE>>];
+ Inv [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#E5F0F8"><B>InventarioService</B></TD></TR><TR><TD ALIGN="LEFT">- productos / categorias / movimientos<BR ALIGN="LEFT"/>- pila_deshacer</TD></TR><TR><TD ALIGN="LEFT">+ crear/editar/eliminar_producto()<BR ALIGN="LEFT"/>+ ajustar_stock()/deshacer_ultimo()<BR ALIGN="LEFT"/>+ arbol_categorias()/resumen_categorias()</TD></TR></TABLE>>];
+ Op [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#FFF2DE"><B>Operacion</B></TD></TR><TR><TD ALIGN="LEFT">+ id_producto, tipo, cantidad<BR ALIGN="LEFT"/>+ tipo_inverso</TD></TR></TABLE>>];
+ Res [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#FFF2DE"><B>ResumenCategoria</B></TD></TR><TR><TD ALIGN="LEFT">+ nivel, productos, valor<BR ALIGN="LEFT"/>+ ruta</TD></TR></TABLE>>];
+ NodoEnlazado [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>Nodo</B></TD></TR><TR><TD ALIGN="LEFT">- valor<BR ALIGN="LEFT"/>- siguiente</TD></TR></TABLE>>];
+ List [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>ListaEnlazada</B></TD></TR><TR><TD ALIGN="LEFT">- cabeza, cola, tamano</TD></TR><TR><TD ALIGN="LEFT">+ agregar_al_inicio/final()<BR ALIGN="LEFT"/>+ eliminar_primero/ultimo()<BR ALIGN="LEFT"/>+ buscar()/vaciar()</TD></TR></TABLE>>];
+ Stack [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>Pila</B></TD></TR><TR><TD ALIGN="LEFT">- lista, capacidad=50</TD></TR><TR><TD ALIGN="LEFT">+ apilar()/desapilar()/tope()</TD></TR></TABLE>>];
+ NCat [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>NodoCategoria</B></TD></TR><TR><TD ALIGN="LEFT">- categoria, padre, hijos</TD></TR><TR><TD ALIGN="LEFT">+ id / nombre</TD></TR></TABLE>>];
+ Tree [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EAF3EA"><B>ArbolCategorias</B></TD></TR><TR><TD ALIGN="LEFT">- nodos, raices</TD></TR><TR><TD ALIGN="LEFT">+ recorrer()/ruta()/altura()<BR ALIGN="LEFT"/>+ total()/ids_subarbol()</TD></TR></TABLE>>];
+ Back [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#F2EAFE"><B>RespaldoService</B></TD></TR><TR><TD ALIGN="LEFT">- db, carpeta</TD></TR><TR><TD ALIGN="LEFT">+ crear()/inspeccionar()<BR ALIGN="LEFT"/>+ restaurar()/respaldo_automatico()</TD></TR></TABLE>>];
+ Result [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#F2EAFE"><B>ResultadoRestauracion</B></TD></TR><TR><TD ALIGN="LEFT">+ productos, categorias, movimientos<BR ALIGN="LEFT"/>+ copia_de_seguridad</TD></TR></TABLE>>];
+ {rank=same; Auth; Inv}
+ {rank=same; Op; Res; Back}
+ {rank=same; Stack; Tree; Result}
+ {rank=same; List; NCat}
+ {rank=same; NodoEnlazado}
+ List -> NodoEnlazado [dir=both, arrowtail=diamond, arrowhead=none, label="nodos"];
+ Stack -> List [dir=both, arrowtail=diamond, arrowhead=none, label="compone"];
+ Tree -> NCat [dir=both, arrowtail=diamond, arrowhead=none, label="árbol"];
+ Inv -> Stack [arrowhead=vee, label="deshacer"];
+ Inv -> Tree [arrowhead=vee, label="categorías"];
+ Inv -> Op [arrowhead=vee, label="apila"];
+ Inv -> Res [arrowhead=vee, label="produce"];
+ Back -> Result [arrowhead=vee, label="devuelve"];
+}

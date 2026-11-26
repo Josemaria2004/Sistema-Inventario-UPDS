@@ -1,0 +1,18 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.58, ranksep=0.62, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 7/7 - HERENCIA DE DIÁLOGOS MODALES", fontsize=18];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=11];
+ edge [color="#314B5F", penwidth=1.35, arrowsize=0.9, fontname="DejaVu Sans", fontsize=9];
+ Dialog [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#DCEAF4"><B><I>«base» DialogoModal (tk.Toplevel)</I></B></TD></TR><TR><TD ALIGN="LEFT">- padre, cuerpo, resultado</TD></TR><TR><TD ALIGN="LEFT">+ mostrar()<BR ALIGN="LEFT"/>+ _fila_botones()</TD></TR></TABLE>>];
+ Login [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>Login</B></TD></TR><TR><TD ALIGN="LEFT">+ _entrar()</TD></TR></TABLE>>];
+ Form [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>FormularioProducto</B></TD></TR><TR><TD ALIGN="LEFT">- entries, combo_cat<BR ALIGN="LEFT"/>+ _leer() / _guardar()</TD></TR></TABLE>>];
+ Cant [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>DialogoCantidad</B></TD></TR><TR><TD ALIGN="LEFT">- ent<BR ALIGN="LEFT"/>+ _ok()</TD></TR></TABLE>>];
+ Clave [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>CambiarClave</B></TD></TR><TR><TD ALIGN="LEFT">- entries<BR ALIGN="LEFT"/>+ _guardar()</TD></TR></TABLE>>];
+ Mover [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#EAF3EA"><B>DialogoMoverCategoria</B></TD></TR><TR><TD ALIGN="LEFT">- combo, _ids<BR ALIGN="LEFT"/>+ _ok()</TD></TR></TABLE>>];
+ {rank=same; Login; Form; Cant}
+ {rank=same; Clave; Mover}
+ Dialog -> Login [style=invis, weight=5]; Dialog -> Form [style=invis, weight=5]; Dialog -> Cant [style=invis, weight=5];
+ Login -> Clave [style=invis, weight=4]; Form -> Mover [style=invis, weight=4];
+ Login -> Dialog [arrowhead=empty, constraint=false]; Form -> Dialog [arrowhead=empty, constraint=false];
+ Cant -> Dialog [arrowhead=empty, constraint=false]; Clave -> Dialog [arrowhead=empty, constraint=false];
+ Mover -> Dialog [arrowhead=empty, constraint=false];
+}

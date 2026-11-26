@@ -1,0 +1,21 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.62, ranksep=0.62, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 2/7 - JERARQUÍA DE EXCEPCIONES", fontsize=18];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=12];
+ edge [color="#314B5F", penwidth=1.4, arrowsize=0.9, fontname="DejaVu Sans", fontsize=9];
+ ErrorInv [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBE7E7"><B>ErrorInventario</B></TD></TR><TR><TD ALIGN="LEFT">+ mensaje apto para usuario</TD></TR></TABLE>>];
+ ErrorVal [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBEFEF"><B>ErrorValidacion</B></TD></TR><TR><TD ALIGN="LEFT">- errores: list[str]</TD></TR></TABLE>>];
+ NoEnc [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBEFEF"><B>NoEncontrado</B></TD></TR></TABLE>>];
+ Stock [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBEFEF"><B>StockInsuficiente</B></TD></TR><TR><TD ALIGN="LEFT">+ disponible: int</TD></TR></TABLE>>];
+ Bloq [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBEFEF"><B>CuentaBloqueada</B></TD></TR><TR><TD ALIGN="LEFT">+ segundos: int</TD></TR></TABLE>>];
+ EstructuraVacia [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FBEFEF"><B>EstructuraVacia</B></TD></TR><TR><TD ALIGN="LEFT">Lista o pila vacía</TD></TR></TABLE>>];
+ ExBase [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#F2EAFE"><B>Exception</B></TD></TR><TR><TD ALIGN="LEFT">built-in de Python</TD></TR></TABLE>>];
+ {rank=same; ErrorVal; NoEnc}
+ {rank=same; Stock; Bloq}
+ {rank=same; EstructuraVacia; ExBase}
+ ErrorInv -> ErrorVal [style=invis, weight=5]; ErrorInv -> NoEnc [style=invis, weight=5];
+ ErrorVal -> Stock [style=invis, weight=5]; NoEnc -> Bloq [style=invis, weight=5];
+ Bloq -> EstructuraVacia [style=invis, weight=2];
+ ErrorVal -> ErrorInv [arrowhead=empty, constraint=false]; NoEnc -> ErrorInv [arrowhead=empty, constraint=false];
+ Stock -> ErrorInv [arrowhead=empty, constraint=false]; Bloq -> ErrorInv [arrowhead=empty, constraint=false];
+ EstructuraVacia -> ExBase [arrowhead=empty, constraint=false, label="herencia"];
+}

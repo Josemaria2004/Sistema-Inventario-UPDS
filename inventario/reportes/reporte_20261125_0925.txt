@@ -1,0 +1,30 @@
+REPORTE DE INVENTARIO
+Generado: 2026-11-25 09:26  |  Usuario: admin
+============================================================
+
+Producto                  Cant.    Precio    Subtotal
+------------------------------------------------------------
+Audífonos con cable           8     45.00      360.00
+Auriculares Bluetooth        20    150.00     3000.00
+Cable HDMI                   13     35.00      455.00
+Cuaderno universitario       45     12.00      540.00
+Impresora láser               4   1200.00     4800.00
+Lapicero azul                 4      2.00        8.00
+Monitor 24 pulgadas           6    900.00     5400.00
+Mouse inalámbrico            15     65.00      975.00
+Parlante portátil            12    220.00     2640.00
+Proyector portátil            3    950.00     2850.00
+Teclado USB                  10     85.00      850.00
+------------------------------------------------------------
+VALOR TOTAL                                  21878.00
+
+RESUMEN POR CATEGORÍA (incluye subcategorías):
+  Electrónica                          9 prod.    21330.00
+    Audio                              3 prod.     6000.00
+      Auriculares                      2 prod.     3360.00
+  Papelería                            2 prod.      548.00
+
+PRODUCTOS CON STOCK BAJO (<5):
+  - Impresora láser: 4 unidades
+  - Lapicero azul: 4 unidades
+  - Proyector portátil: 3 unidades

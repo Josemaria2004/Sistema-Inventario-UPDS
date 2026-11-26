@@ -1,0 +1,28 @@
+ENTREGA FINAL - SISTEMA DE INVENTARIO
+
+INFORME
+- Informe_Tecnico_Sistema_Inventario.pdf: informe científico-técnico con estructura IMRyD,
+  diagramas UML, capturas de pruebas, discusión y referencias bibliográficas en formato APA 7.
+
+PROYECTO DE SOFTWARE
+- inventario_corregido/: código fuente Python, interfaz Tkinter, base de datos SQLite,
+  respaldos, reportes, pruebas automatizadas y documentación.
+
+DOCUMENTACIÓN INCLUIDA
+- documentacion/uml/: diagramas de arquitectura y clases en PNG y sus fuentes Graphviz (.dot).
+- documentacion/evidencias/: capturas de escenarios de demostración y resultado de respaldo.
+- PRUEBAS_AUTOMATIZADAS.txt: comando reproducible y resultado de las 171 pruebas.
+- INSTRUCCIONES_ENTREGA.txt: requisitos, inicio, acceso, respaldos y mantenimiento.
+
+INICIO RÁPIDO
+1. Abrir una terminal dentro de inventario_corregido.
+2. Ejecutar: python main.py
+3. Consultar INSTRUCCIONES_ENTREGA.txt antes del primer uso.
+
+DATOS DE LA CARÁTULA
+Universidad Privada Domingo Savio (UPDS)
+Proyecto: Sistema de Inventario: Aplicación de Escritorio para el Control de Productos y Existencias
+Estudiante: Jose Maria Almanza Guardia
+Docente: Ing. Jaime Zambrana Chacón
+Asignatura: Programación III
+Lugar y año: Santa Cruz, Bolivia - 2026

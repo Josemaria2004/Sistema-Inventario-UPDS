@@ -1,0 +1,12 @@
+﻿ID;Producto;Descripción;Categoría;Precio;Cantidad;Subtotal
+8;Audífonos con cable;;Electrónica > Audio > Auriculares;45,00;8;360,00
+1;Auriculares Bluetooth;;Electrónica > Audio > Auriculares;150,00;20;3000,00
+3;Cable HDMI;;Electrónica;35,00;13;455,00
+4;Cuaderno universitario;;Papelería;12,00;45;540,00
+10;Impresora láser;Impresora monocromática;Electrónica;1200,00;4;4800,00
+5;Lapicero azul;;Papelería;2,00;4;8,00
+9;Monitor 24 pulgadas;Pantalla LED Full HD;Electrónica;900,00;6;5400,00
+6;Mouse inalámbrico;;Electrónica;65,00;15;975,00
+2;Parlante portátil;;Electrónica > Audio;220,00;12;2640,00
+11;Proyector portátil;Proyector multimedia LED;Electrónica;950,00;3;2850,00
+7;Teclado USB;;Electrónica;85,00;10;850,00

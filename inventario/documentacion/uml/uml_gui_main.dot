@@ -1,0 +1,17 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.35, nodesep=0.58, ranksep=0.62, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 6/7 - VENTANA PRINCIPAL Y COMPONENTES GUI", fontsize=18];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=11];
+ edge [color="#314B5F", penwidth=1.35, arrowsize=0.9, fontname="DejaVu Sans", fontsize=9];
+ App [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#E5F0F8"><B>App (tk.Tk)</B></TD></TR><TR><TD ALIGN="LEFT">- auth, inventario, reportes, respaldos<BR ALIGN="LEFT"/>- tabla, botones, _orden</TD></TR><TR><TD ALIGN="LEFT">+ cargar_tabla()/agregar()/editar()<BR ALIGN="LEFT"/>+ ajustar_stock()/deshacer()<BR ALIGN="LEFT"/>+ report_callback_exception()</TD></TR></TABLE>>];
+ Hist [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FFF2DE"><B>Historial (tk.Toplevel)</B></TD></TR><TR><TD ALIGN="LEFT">+ listar movimientos</TD></TR></TABLE>>];
+ Cats [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FFF2DE"><B>Categorias (tk.Toplevel)</B></TD></TR><TR><TD ALIGN="LEFT">+ _pintar() recursivo<BR ALIGN="LEFT"/>+ _cargar() / _agregar()</TD></TR></TABLE>>];
+ Trash [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#FFF2DE"><B>Papelera (tk.Toplevel)</B></TD></TR><TR><TD ALIGN="LEFT">+ _cargar() / _restaurar()</TD></TR></TABLE>>];
+ Search [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#F2EAFE"><B>CampoBusqueda (ttk.Entry)</B></TD></TR><TR><TD ALIGN="LEFT">+ get()/insert()/delete()</TD></TR></TABLE>>];
+ Card [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="8"><TR><TD BGCOLOR="#F2EAFE"><B>TarjetaDato (tk.Frame)</B></TD></TR><TR><TD ALIGN="LEFT">+ poner()</TD></TR></TABLE>>];
+ {rank=same; Hist; Cats; Trash}
+ {rank=same; Search; Card}
+ App -> Hist [style=invis, weight=5]; App -> Cats [style=invis, weight=5]; App -> Trash [style=invis, weight=5];
+ Hist -> Search [style=invis, weight=5]; Cats -> Card [style=invis, weight=5];
+ App -> Hist [arrowhead=vee, constraint=false]; App -> Cats [arrowhead=vee, constraint=false]; App -> Trash [arrowhead=vee, constraint=false];
+ App -> Search [arrowhead=vee, constraint=false]; App -> Card [arrowhead=vee, constraint=false];
+}

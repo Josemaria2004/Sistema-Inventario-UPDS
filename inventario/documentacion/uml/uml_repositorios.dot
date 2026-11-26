@@ -1,0 +1,15 @@
+
+digraph G {
+ graph [rankdir=TB, bgcolor="white", pad=0.22, nodesep=0.35, ranksep=0.6, splines=ortho, fontname="DejaVu Sans", labelloc=t, label="UML 2/5 - PERSISTENCIA Y PATRÓN REPOSITORIO", fontsize=17];
+ node [shape=plain, fontname="DejaVu Sans", fontsize=10];
+ edge [color="#314B5F", penwidth=1.2, arrowsize=0.8, fontname="DejaVu Sans", fontsize=9];
+ Base [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#DCEAF4"><B><I>«abstract» RepositorioBase</I></B></TD></TR><TR><TD ALIGN="LEFT"># db: Database</TD></TR><TR><TD ALIGN="LEFT">+ listar() {abstract}<BR ALIGN="LEFT"/>+ obtener(id) {abstract}</TD></TR></TABLE>>];
+ DB [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#F2EAFE"><B>Database</B></TD></TR><TR><TD ALIGN="LEFT">- conn: sqlite3.Connection<BR ALIGN="LEFT"/>- ruta: str</TD></TR><TR><TD ALIGN="LEFT">+ transaccion()<BR ALIGN="LEFT"/>+ cerrar()<BR ALIGN="LEFT"/>+ migrar()</TD></TR></TABLE>>];
+ U [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#EAF3EA"><B>UsuarioRepository</B></TD></TR><TR><TD ALIGN="LEFT">+ crear()<BR ALIGN="LEFT"/>+ obtener_hash()<BR ALIGN="LEFT"/>+ actualizar_hash()</TD></TR></TABLE>>];
+ C [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#EAF3EA"><B>CategoriaRepository</B></TD></TR><TR><TD ALIGN="LEFT">+ agregar()<BR ALIGN="LEFT"/>+ renombrar()<BR ALIGN="LEFT"/>+ mover()<BR ALIGN="LEFT"/>+ eliminar()</TD></TR></TABLE>>];
+ P [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#EAF3EA"><B>ProductoRepository</B></TD></TR><TR><TD ALIGN="LEFT">+ agregar()<BR ALIGN="LEFT"/>+ actualizar()<BR ALIGN="LEFT"/>+ archivar()/restaurar()<BR ALIGN="LEFT"/>+ ajustar_cantidad()<BR ALIGN="LEFT"/>+ valor_total()</TD></TR></TABLE>>];
+ M [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#EAF3EA"><B>MovimientoRepository</B></TD></TR><TR><TD ALIGN="LEFT">+ registrar()<BR ALIGN="LEFT"/>+ listar()</TD></TR></TABLE>>];
+ {rank=same; U; C; P; M}
+ U -> Base [arrowhead=empty]; C -> Base [arrowhead=empty]; P -> Base [arrowhead=empty]; M -> Base [arrowhead=empty];
+ Base -> DB [arrowhead=vee, label="usa conexión"];
+}
